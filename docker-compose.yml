@@ -6,7 +6,7 @@ services:
       - 5434:5432
     environment:
       POSTGRES_USER: nqws0790_kD55hBCeW8q6
-      POSTGRES_PASSWORD: 123
+      POSTGRES_PASSWORD: 12xt6h4fWf4QL9WiP5syZ887S8Si54giDizdB8L685aBiBkBVaW87MS3bWc22ba3L9YT3
       POSTGRES_DB: cW76664NDPkmc
     networks:
       - TKALS
@@ -30,6 +30,7 @@ services:
       PORT: 3000
     ports:
       - '3000:3000'
+    command: npm run start:prod
     networks:
       - TKALS
 networks:
