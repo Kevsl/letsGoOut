@@ -5,20 +5,33 @@ services:
     ports:
       - 5434:5432
     environment:
-      POSTGRES_USER: postgres
+      POSTGRES_USER: nqws0790_kD55hBCeW8q6
       POSTGRES_PASSWORD: 123
-      POSTGRES_DB: nest
+      POSTGRES_DB: cW76664NDPkmc
     networks:
-      - freecodecamp
+      - TKALS
   test-db:
     image: postgres:13
     ports:
       - 5435:5432
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 123
-      POSTGRES_DB: nest
+      POSTGRES_USER: nqws0790_kD55hBCeW8q6
+      POSTGRES_PASSWORD: 12xt6h4fWf4QL9WiP5syZ887S8Si54giDizdB8L685aBiBkBVaW87MS3bWc22ba3L9YT3
+      POSTGRES_DB: cW76664NDPkmc
     networks:
-      - freecodecamp
+      - TKALS
+  node-app:
+    image: node:18.15.0
+    working_dir: /usr/src/app
+    volumes:
+      - ./app:/usr/src/app
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+    ports:
+      - '3000:3000'
+    networks:
+      - TKALS
 networks:
-  freecodecamp:
+  TKALS:
+    external: true
