@@ -47,7 +47,7 @@ export class createActivityDto {
 
   @IsArray()
   @IsString({ each: true })
-  photo: string;
+  photo: string[];
 
   @IsString()
   user: string;
