@@ -39,7 +39,7 @@ model activity {
   createdAt  String
   updatedAt  String
   material String
-  photo String
+  photo String[]
   user String
   category String
 

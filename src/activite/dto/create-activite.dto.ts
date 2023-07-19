@@ -3,6 +3,7 @@ import {
   IsNumber,
   IsOptional,
   IsString,
+  IsArray,
 } from 'class-validator';
 
 export class createActivityDto {
@@ -44,7 +45,8 @@ export class createActivityDto {
   @IsString()
   material: string;
 
-  @IsString()
+  @IsArray()
+  @IsString({ each: true })
   photo: string;
 
   @IsString()
