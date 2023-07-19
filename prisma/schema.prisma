@@ -21,95 +21,26 @@ model User {
   firstName String?
   lastName  String?
 
-  bookmarks Bookmark[]
 
   @@map("users")
 }
 
-model Bookmark {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+model activity {
+  id        String     @id @default(uuid())
+  name  String
+  description  String
+  date  String
+  location  String
+  latitude String
+  longitude String
+  maxParticipant Int
+  participant Int
+  isActive String
+  createdAt  String
+  updatedAt  String
+  material String
+  photo String
+  user String
+  category String
 
-  title       String
-  description String?
-  link        String
-
-  userId String
-  user   User @relation(fields: [userId], references: [id])
-
-  @@map("bookmarks")
-}
-
-model entreprise {
-  id_entreprise Int   @id @default(autoincrement())
-  nom_entreprise  String
-  utilisateur_id String
-}
-
-model chronomode {
-  id_chronomode Int @id @default(autoincrement())
-  nom_chronomode String
-  date_chronomode DateTime @default(now())
-  utilisateur_id String
-}
-model infractions {
-  id_infractions Int @id @default(autoincrement())
-  nom_infractions String
-  date_infractions DateTime @default(now())
-  utilisateur_id String
-}
-
-model journee {
-  id_journee Int @id @default(autoincrement())
-  conduite_journee Int
-  service_journee Int
-  repos_journee Int
-  debut_journee DateTime  @default(now())
-  fin_journee DateTime     @default(now())
-  utilisateur_id String
-
-}
-
-model semaine {
-  id_semaine Int @id @default(autoincrement())
-  conduite_semaine Int
-  service_semaine Int
-  repos_semaine Int
-  debut_semaine DateTime  @default(now())
-  utilisateur_id String
-}
-
-model bi_semaine {
-  id_bi_semaine Int @id @default(autoincrement())
-  conduite_bi_semaine Int
-  service_bi_semaine Int
-  repos_bi_semaine Int
-  debut_bi_semaine DateTime  @default(now())
-  utilisateur_id String
-}
-
-model tri_semaine {
-  id_tri_semaine Int @id @default(autoincrement())
-  repos_a_rattraper Int
-  utilisateur_id String
-}
-
-model mois {
-  id_mois Int @id @default(autoincrement())
-  conduite_mois Int
-  service_mois Int
-  repos_mois Int
-  debut_mois DateTime  @default(now())
-  infractions_mois Int
-  decouches_mois Int
-  utilisateur_id String
-}
-
-model annee {
-  id_annee Int @id @default(autoincrement())
-  conduite_annee Int
-  service_annee Int
-  debut_annee DateTime  @default(now())
-  utilisateur_id String
 }

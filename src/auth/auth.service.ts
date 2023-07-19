@@ -5,7 +5,6 @@ import {
 import { PrismaService } from '../prisma/prisma.service';
 import { AuthDto } from './dto';
 import * as argon from 'argon2';
-import { PrismaClientKnownRequestError } from '@prisma/client/runtime';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 
@@ -24,21 +23,18 @@ export class AuthService {
     try {
       const user = await this.prisma.user.create({
         data: {
-          createdAt:new Date(),
-          updatedAt:new Date(),
+          createdAt: new Date(),
+          updatedAt: new Date(),
           email: dto.email,
           hash,
-          firstName:  dto.firstName,
-          lastName: dto.lastName
+          firstName: dto.firstName,
+          lastName: dto.lastName,
         },
       });
 
       return this.signToken(user.id, user.email);
     } catch (error) {
-      if (
-        error instanceof
-        PrismaClientKnownRequestError
-      ) {
+      if (error) {
         if (error.code === 'P2002') {
           throw new ForbiddenException(
             'Credentials taken',

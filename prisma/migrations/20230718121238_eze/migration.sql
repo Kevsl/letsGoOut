@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "activity" ALTER COLUMN "isActive" DROP DEFAULT,
+ALTER COLUMN "isActive" SET DATA TYPE TEXT;

@@ -9,7 +9,7 @@ services:
       POSTGRES_PASSWORD: 12xt6h4fWf4QL9WiP5syZ887S8Si54giDizdB8L685aBiBkBVaW87MS3bWc22ba3L9YT3
       POSTGRES_DB: cW76664NDPkmc
     networks:
-      - TKALS
+      - AAA
   test-db:
     image: postgres:13
     ports:
@@ -19,7 +19,7 @@ services:
       POSTGRES_PASSWORD: 12xt6h4fWf4QL9WiP5syZ887S8Si54giDizdB8L685aBiBkBVaW87MS3bWc22ba3L9YT3
       POSTGRES_DB: cW76664NDPkmc
     networks:
-      - TKALS
+      - AAA
   node-app:
     image: node:18.15.0
     working_dir: /usr/src/app
@@ -32,7 +32,7 @@ services:
       - '3000:3000'
     command: npm run start:prod
     networks:
-      - TKALS
+      - AAA
 networks:
-  TKALS:
+  AAA:
     external: true
